@@ -30,7 +30,7 @@ Here's a list if you just want to quickly learn how to use MySpot.
 * SQLMap Configuration File: **${ProjectRoot}/config/myspot**
 * DAO Class File: **${ProjectRoot}/src/DAO/Test/PostDAO.php**
 
-I still recommend the GUI tool, which can generate MySpot sql code: [iCopyPaste] (https://github.com/vimac/iCopyPaste)
+I still recommend the GUI tool, which can generate MySpot sql code: [iCopyPaste](https://github.com/vimac/iCopyPaste)
 
 #### Other information
 

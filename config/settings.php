@@ -11,7 +11,7 @@ return function (ContainerBuilder $containerBuilder) {
             'displayErrorDetails' => true, // Should be set to false in production
             'logger' => [
                 'name' => 'myspot-demo-app',
-                'path' => isset($_ENV['docker']) ? 'php://stdout' : __DIR__ . '/../logs/app.log',
+                'path' => 'php://stdout',
                 'level' => Logger::DEBUG,
             ],
         ],

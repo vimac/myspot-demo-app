@@ -3,6 +3,7 @@
 namespace MyProject\Component;
 
 use Psr\Container\ContainerInterface as Container;
+use Psr\Log\LoggerInterface;
 
 abstract class Component
 {
@@ -20,6 +21,11 @@ abstract class Component
     protected function getContainer(): Container
     {
         return $this->_container;
+    }
+
+    protected function logger(): LoggerInterface
+    {
+        return $this->getContainer()->get(LoggerInterface::class);
     }
 
 }

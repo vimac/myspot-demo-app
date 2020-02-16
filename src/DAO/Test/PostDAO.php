@@ -16,7 +16,7 @@ class PostDAO extends BaseDAO
      * Execute the query 'test.post.selectIdUserTitleTextCreatedAt'
      *
      * @return \MyProject\DataObject\Test\PostDO[] Data Object
-     * @throws \MySpot\SqlMapException
+     * @throws Exception
      */
     public function selectIdUserTitleTextCreatedAt()
     {
@@ -31,7 +31,7 @@ class PostDAO extends BaseDAO
      *
      * @param string $user
      * @return \MyProject\DataObject\Test\PostDO[] Data Object
-     * @throws \MySpot\SqlMapException
+     * @throws Exception
      */
     public function selectIdUserTitleTextCreatedAtByUser(?string $user)
     {
@@ -55,7 +55,7 @@ class PostDAO extends BaseDAO
      *
      * @param string $users
      * @return \MyProject\DataObject\Test\PostDO[] Data Object
-     * @throws \MySpot\SqlMapException
+     * @throws Exception
      */
     public function selectIdUserTitleTextCreatedAtByUsers(?array $users)
     {
@@ -71,5 +71,94 @@ class PostDAO extends BaseDAO
         ]);
 
         return $sqlMapResult->fetchAll();
+    }
+
+    /**
+     * Execute the query 'test.post.insertUserTitleText'
+     *
+     * @param string $user
+     * @param string $title
+     * @param string $text
+     * @return int Last insert ID
+     * @throws Exception
+     */
+    public function insertUserTitleText(?string $user, ?string $title, ?string $text)
+    {
+        $sqlMap = $this->getSqlMap();
+        $sqlMapResult = $sqlMap->insert('test.post.insertUserTitleText', [
+            'user' => [$user, SqlMapConst::PARAM_STR],
+            'title' => [$title, SqlMapConst::PARAM_STR],
+            'text' => [$text, SqlMapConst::PARAM_STR]
+        ]);
+
+        return $sqlMapResult->getLastInsertId();
+    }
+
+
+    /**
+     * Execute the query 'test.post.selectCountByUser'
+     *
+     * @param bool $whereUser Determine to enable where by `user`
+     * @param array $user
+     * @return int Counted lines
+     * @throws Exception
+     */
+    public function selectCountByUser(?bool $whereUser, ?array $user)
+    {
+        $sqlMap = $this->getSqlMap();
+        $sqlMapResult = $sqlMap->select('test.post.selectCountByUser', [
+            'whereUser' => [$whereUser, SqlMapConst::PARAM_BOOL],
+            'user' => [$user, SqlMapConst::PARAM_STR]
+        ]);
+
+        return $sqlMapResult->fetchColumn();
+    }
+
+    /**
+     * Execute the query 'test.post.deleteByUser'
+     *
+     * @param string $user
+     * @return int
+     * @throws Exception
+     */
+    public function deleteByUser(?string $user)
+    {
+        static $requiredParams = ['user'];
+        foreach ($requiredParams as $param) {
+            if (!isset(${$param})) {
+                throw new Exception(sprintf('Param [%s] is missing in %s', $param, __METHOD__));
+            }
+        }
+        $sqlMap = $this->getSqlMap();
+        $sqlMapResult = $sqlMap->delete('test.post.deleteByUser', [
+            'user' => [$user, SqlMapConst::PARAM_STR]
+        ]);
+
+        return $sqlMapResult->getAffectedLines();
+    }
+
+    /**
+     * Execute the query 'test.post.updateUserByUser'
+     *
+     * @param string $newUser
+     * @param string $user
+     * @return int Affected lines
+     * @throws Exception
+     */
+    public function updateUserByUser(?string $newUser, ?string $user)
+    {
+        static $requiredParams = ['newUser', 'user'];
+        foreach ($requiredParams as $param) {
+            if (!isset(${$param})) {
+                throw new Exception(sprintf('Param [%s] is missing in %s', $param, __METHOD__));
+            }
+        }
+        $sqlMap = $this->getSqlMap();
+        $sqlMapResult = $sqlMap->update('test.post.updateUserByUser', [
+            'newUser' => [$newUser, SqlMapConst::PARAM_STR],
+            'user' => [$user, SqlMapConst::PARAM_STR]
+        ]);
+
+        return $sqlMapResult->getAffectedLines();
     }
 }

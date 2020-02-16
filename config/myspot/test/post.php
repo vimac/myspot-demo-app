@@ -1,5 +1,5 @@
 <?php
-// config/myspot/myspot_test/post.php
+// config/myspot/test/post.php
 use MySpot\SqlMapStatement;
 
 return [
@@ -18,6 +18,19 @@ return [
         'resultType' => MyProject\DataObject\Test\PostDO::class,
         'resultMapStyle' => SqlMapStatement::MAP_STYLE_UNDERSCORE_TO_LOWER_CAMELCASE
     ],
+    'selectCountByUser' => [
+        'sql' => 'SELECT COUNT(*) FROM `post` :whereUser?{WHERE `user` IN :user:}'
+    ],
+    'insertUserTitleText' => [
+        'sql' => 'INSERT INTO `post`(`user`, `title`, `text`) VALUES (:user, :title, :text)'
+    ],
+    'deleteByUser' => [
+        'sql' => 'DELETE FROM `post` WHERE `user` = :user'
+    ],
+    'updateUserByUser' => [
+        'sql' => 'UPDATE `post` SET `user` = :newUser WHERE `user` = :user'
+    ],
+
 ];
 
 

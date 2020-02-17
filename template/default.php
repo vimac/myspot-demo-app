@@ -55,6 +55,7 @@
             padding: 10px;
             border: 1px solid #ccc;
             margin: 5px;
+            background: #f3f7f3;
         }
 
         form {

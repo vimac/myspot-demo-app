@@ -4,16 +4,22 @@
 
 #### 如何运行
 
-在开发环境运行以下命令:
+首先安装依赖
 
 ```bash
 cd myspot-demo-app
-composer start
+composer install
 ```
 
-如果你对 Docker 比较熟悉, 也可以使用 `docker-compose` 在 Docker 中运行, 运行以下命令:
+在 PHP 开发服务器中运行应用, 使用以下命令:
+
 ```bash
-cd myspot-demo-app
+composer start
+# 或者使用 `composer dev` 开启 xdebug 支持的开发服务器
+```
+
+或者如果你对 Docker 比较熟悉, 也可以使用 `docker-compose` 在 Docker 中运行, 运行以下命令:
+```bash
 docker-compose up -d
 ```
 

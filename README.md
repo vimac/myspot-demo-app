@@ -6,16 +6,22 @@ This is a demo application of MySpot DAL framework, checkout: [MySpot Github Pag
 
 #### How to run
 
-To run the application in development, you can run these commands 
+Composer install first
 
 ```bash
 cd myspot-demo-app
+composer install
+```
+
+To run the application with PHP development server, you can run these commands 
+
+```bash
 composer start
+# `composer dev` with activating xdebug
 ```
 
 Or you can use `docker-compose` to run the app with `docker`, so you can run these commands:
 ```bash
-cd myspot-demo-app
 docker-compose up -d
 ```
 After that, open `http://localhost:8080` in your browser.

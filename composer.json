@@ -18,7 +18,7 @@
     ],
     "require": {
         "vimac/myspot": "dev-master",
-        "php": ">=7.3",
+        "php": ">=7.2",
         "ext-json": "*",
         "ext-pdo": "*",
         "monolog/monolog": "^1.24",
